@@ -99,9 +99,7 @@ export function FeatureOverviewPage() {
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-400">
               All customers, contacts, emails and permissions in the public
-              demo are synthetic test data. Identity switching is a simulation
-              aid, never real authentication. The protected Live workspace
-              (server-enforced policy) arrives in a later phase.
+              demo are synthetic test data
             </p>
           </div>
         </div>

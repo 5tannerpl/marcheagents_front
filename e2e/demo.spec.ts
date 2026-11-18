@@ -99,10 +99,10 @@ test('inspector tabs switch between context, policy and audit', async ({
   await expect(page.getByTestId('audit-timeline')).toBeVisible();
 });
 
-test('protected live routes show the locked placeholder', async ({ page }) => {
+test('protected live routes show the live operations demo intro', async ({ page }) => {
   await page.goto('/app/features/email-support');
   await expect(
-    page.getByRole('heading', { name: /protected live workspace/i }),
+    page.getByRole('heading', { name: /live ai agent operations demo/i }),
   ).toBeVisible();
   await expect(page.getByTestId('mode-badge')).toContainText(
     'SERVER-ENFORCED POLICY',

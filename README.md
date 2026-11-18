@@ -28,7 +28,7 @@ story)** — see
 | `/features/email-support/demo` | Five-step interactive demo (synthetic data) |
 | `/features/email-support/data-protection` | Data Protection: 10 simulated scenarios, run individually |
 | `/contact` | Contact form (submits via Web3Forms to info@marcheagents.com) |
-| `/app/features/email-support`, `/app/*` | Protected Live placeholder (OIDC BFF arrives in Phase 3+) |
+| `/app/features/email-support`, `/app/*` | Live AI Agent Operations Demo intro (live access arrives in Phase 3+) |
 | `/demo`, `/demo/security` | Legacy compatibility redirects |
 
 The demo restores `?step=` and `?identity=` from the URL, so refresh and deep

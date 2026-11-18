@@ -7,6 +7,7 @@ const navItems = [
   { to: '/features', label: 'Agent Catalog', end: false },
   { to: '/features/email-support/demo', label: 'Email Agent Demo', end: false },
   { to: '/features/email-support/data-protection', label: 'Data Protection', end: false },
+  { to: '/app/features/email-support', label: 'Agent OPS Demo', end: false },
   { to: '/contact', label: 'Contact Us', end: false },
 ];
 

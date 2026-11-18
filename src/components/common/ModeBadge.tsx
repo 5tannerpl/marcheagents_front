@@ -12,7 +12,7 @@ export function ModeBadge({ mode }: ModeBadgeProps) {
         className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-semibold tracking-wide text-amber-300"
       >
         <span className="h-1.5 w-1.5 rounded-full bg-amber-400" aria-hidden />
-        SIMULATED DATA / SIMULATED POLICY
+        SIMULATED DATA 
       </span>
     );
   }

@@ -17,7 +17,7 @@ describe('PublicDemoPage', () => {
     renderDemo();
     expect(screen.getByTestId('email-viewer')).toBeInTheDocument();
     expect(screen.getAllByTestId('mode-badge')[0]).toHaveTextContent(
-      'SIMULATED DATA / SIMULATED POLICY',
+      'SIMULATED DATA',
     );
   });
 

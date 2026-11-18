@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Building2, Lock } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Building2 } from 'lucide-react';
 import {
   DEMO_STEPS,
   type DemoIdentity,
@@ -123,12 +123,6 @@ export function PublicDemoPage() {
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <ModeBadge mode="public-simulation" />
-          <Link
-            to="/app/features/email-support"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:bg-slate-800/60"
-          >
-            <Lock className="h-3.5 w-3.5" aria-hidden /> Protected Live
-          </Link>
         </div>
       </div>
 
