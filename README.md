@@ -29,6 +29,7 @@ story)** — see
 | `/features/email-support/data-protection` | Data Protection: 10 simulated scenarios, run individually |
 | `/contact` | Contact form (submits via Web3Forms to info@marcheagents.com) |
 | `/app/features/email-support`, `/app/*` | Live AI Agent Operations Demo intro (live access arrives in Phase 3+) |
+| `/app/agent-ops` | Agent Ops Board Live Dashboard (React port of the AOB Streamlit Live GPU demo). **Simulated data only**; shipped in `npm run dev` and in builds with `VITE_AOB_DASHBOARD_MOCK=1`, otherwise it falls through to `/app/*` |
 | `/demo`, `/demo/security` | Legacy compatibility redirects |
 
 The demo restores `?step=` and `?identity=` from the URL, so refresh and deep
@@ -50,6 +51,12 @@ tabbed layout on mobile.
   under `components/demo/` and `features/email-support/`.
 - `src/lib/apiClient.ts` is a health-check-only stub; no backend calls, tokens
   or secrets exist in this bundle.
+- `src/features/agent-ops/` — Agent Ops Live Dashboard (Phase B2, see
+  [`docs/phase-b-aob-react-migration.md`](docs/phase-b-aob-react-migration.md) §13).
+  `api/types.ts` mirrors the AOB `/api/demo/*` DTOs (Appendix A); `api/AobApi.ts`
+  is the adapter interface; `api/mock/` is an in-browser **simulation** that
+  ports AOB's read models and sanitisers and never performs network I/O. The
+  BFF-backed adapter is not implemented yet.
 
 ## Develop
 
