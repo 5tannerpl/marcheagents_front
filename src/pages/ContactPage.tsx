@@ -83,17 +83,16 @@ export function ContactPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6">
-      <h1 className="text-3xl font-bold text-white">Contact Us</h1>
+      <h1 className="text-3xl font-bold text-white">
+        Let&rsquo;s Make Your Workload Lighter.
+      </h1>
       <p className="mt-3 text-slate-400">
-        Questions about MarcheAgents or the Email Support Agent demo? Fill in
-        the form below, or write to us directly at{' '}
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="font-semibold text-brand-300 hover:text-brand-200"
-        >
-          {CONTACT_EMAIL}
-        </a>
-        .
+        Questions about MarcheAgents or our Email Support Agent demo? Or facing
+        repetitive tasks and time-consuming workflows in your business?
+      </p>
+      <p className="mt-3 font-semibold text-slate-200">
+        Tell us about your challenges and explore how AI automation could help
+        — with a free, no-obligation conversation.
       </p>
 
       <form
