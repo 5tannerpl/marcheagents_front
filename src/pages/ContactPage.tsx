@@ -92,7 +92,12 @@ export function ContactPage() {
       </p>
       <p className="mt-3 font-semibold text-slate-200">
         Tell us about your challenges and explore how AI automation could help
-        — with a free, no-obligation conversation.
+        — we offer a free initial consultation for businesses dealing with
+        repetitive, time-consuming or complex workflows.
+      </p>
+      <p className="mt-4 text-sm text-slate-400">
+        Serving businesses across Australia, the USA, the UK and Europe ·
+        Remote consultations available
       </p>
 
       <form

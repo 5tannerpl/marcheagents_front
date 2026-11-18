@@ -55,7 +55,7 @@ export function LandingPage() {
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(2,6,23,0.35),rgba(2,6,23,0.75))]"
           aria-hidden
         />
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
+        <div className="relative mx-auto flex min-h-[calc(100vh-3.5rem)] max-w-7xl items-center px-4 py-20 sm:px-6 sm:py-28">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-medium uppercase tracking-[0.25em] text-slate-300">
               Enterprise AI Agent Showcase Platform
@@ -72,8 +72,12 @@ export function LandingPage() {
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-400">
               From incoming messages to prioritised actions — MarcheAgent will
               classify, organise, connect related projects, escalate urgent
-              issues, and prepare every follow-up. So your team can focus on
-              what matters most.
+              issues, and prepare every follow-up. AI agents and workflow
+              automation solutions{' '}
+              <span className="font-semibold text-brand-300">
+                for businesses across Australia, the USA, the UK and Europe
+              </span>{' '}
+              — so your team can focus on what matters most.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
               <Link
