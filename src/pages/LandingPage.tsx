@@ -45,38 +45,49 @@ export function LandingPage() {
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden">
+        <img
+          src="/hero-bg.png"
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        />
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.15),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(2,6,23,0.35),rgba(2,6,23,0.75))]"
           aria-hidden
         />
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
-          <div className="max-w-3xl">
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-400" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.25em] text-slate-300">
               Enterprise AI Agent Showcase Platform
             </p>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-              Your Business,{' '}
-              <span className="text-brand-400">Already One Step Ahead.</span>
+            <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
+              <span className="block text-brand-400 drop-shadow-[0_0_25px_rgba(56,189,248,0.35)]">
+                Your Business,
+              </span>
+              <span className="block text-white">Already One Step Ahead.</span>
             </h1>
-            <h2 className="mt-5 text-xl font-semibold text-slate-200 sm:text-2xl">
+            <h2 className="mt-6 text-xl font-semibold text-slate-200 sm:text-2xl">
               Hundreds of Emails. Zero Chaos. Already Taken Care Of.
             </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-400">
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-400">
               From incoming messages to prioritised actions — MarcheAgent will
               classify, organise, connect related projects, escalate urgent
-              issues, and prepare every follow-up.
+              issues, and prepare every follow-up. So your team can focus on
+              what matters most.
             </p>
-            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-slate-400">
-              So your team can focus on what matters most.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
               <Link
                 to="/features/email-support/demo"
                 className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-500"
               >
                 <Mail className="h-5 w-5" aria-hidden />
                 Email Support Agent · Interactive Demo
+              </Link>
+              <Link
+                to="/features/email-support"
+                className="text-base font-semibold text-white hover:text-brand-300"
+              >
+                See How It Works
               </Link>
             </div>
           </div>
