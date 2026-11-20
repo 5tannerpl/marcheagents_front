@@ -5,7 +5,6 @@ import type {
   RunList,
   RunStatus,
   RunView,
-  ScalingSummary,
   StartDemoBody,
   ValidationList,
 } from './types';
@@ -28,8 +27,6 @@ export interface AobApi {
   getMetrics(runId: string, signal?: AbortSignal): Promise<MetricsResponse>;
   /** GET /api/demo/{run_id}/validation */
   getValidation(runId: string, signal?: AbortSignal): Promise<ValidationList>;
-  /** GET /api/demo/{run_id}/summary */
-  getSummary(runId: string, signal?: AbortSignal): Promise<ScalingSummary | null>;
 }
 
 const MAX_MESSAGE_LENGTH = 300;

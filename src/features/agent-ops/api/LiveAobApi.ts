@@ -146,12 +146,4 @@ export class LiveAobApi implements AobApi {
     return this.request(`/bff/aob/demo/${encodeURIComponent(runId)}/validation`, { method: 'GET' }, isValidation, signal);
   }
 
-  getSummary(runId: string, signal?: AbortSignal) {
-    return this.request(
-      `/bff/aob/demo/${encodeURIComponent(runId)}/summary`,
-      { method: 'GET' },
-      (value): value is ScalingSummary | null => value === null || isSummary(value),
-      signal,
-    );
-  }
 }
