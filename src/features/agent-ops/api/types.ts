@@ -270,6 +270,9 @@ export interface ValidationList {
   items: ValidationEvent[];
 }
 
+/** GET /api/demo/{run_id}/summary. */
+export type SummaryResponse = ScalingSummary | null;
+
 /** FastAPI error body. Pydantic 422 errors carry an array in `detail`. */
 export interface ApiErrorBody {
   detail: string | unknown[];

@@ -29,7 +29,7 @@ story)** — see
 | `/features/email-support/data-protection` | Data Protection: 10 simulated scenarios, run individually |
 | `/contact` | Contact form (submits via Web3Forms to info@marcheagents.com) |
 | `/app/features/email-support`, `/app/*` | Live AI Agent Operations Demo intro (live access arrives in Phase 3+) |
-| `/app/agent-ops` | Agent Ops Board Live Dashboard (React port of the AOB Streamlit Live GPU demo). **Simulated data only**; shipped in `npm run dev` and in builds with `VITE_AOB_DASHBOARD_MOCK=1`, otherwise it falls through to `/app/*` |
+| `/app/agent-ops` | Agent Ops Board Live Dashboard (React port of the AOB Streamlit Live GPU demo). Production uses the authenticated MarcheAgents BFF; development/test builds can explicitly use the labelled simulator with `VITE_AOB_DASHBOARD_MOCK=1` |
 | `/demo`, `/demo/security` | Legacy compatibility redirects |
 
 The demo restores `?step=` and `?identity=` from the URL, so refresh and deep

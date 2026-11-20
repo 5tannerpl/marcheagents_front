@@ -18,6 +18,7 @@ interface PanelData {
   status: RunStatus;
   state: LiveState;
   points: MetricsPoint[];
+  summary: LiveState['summary'];
   validation: ValidationEvent[] | null;
   validationError: string | null;
 }
@@ -51,6 +52,7 @@ export function LiveRunPanel({
         const status = await api.getStatus(runId, signal);
         const state = await api.getState(runId, signal);
         const points = state.snapshot ? (await api.getMetrics(runId, signal)).points : [];
+        const summary = await api.getSummary(runId, signal);
         let validation: ValidationEvent[] | null = null;
         let validationError: string | null = null;
         try {
@@ -60,7 +62,7 @@ export function LiveRunPanel({
           validationError = errorText(e);
         }
         if (signal.aborted) return;
-        setData({ status, state, points, validation, validationError });
+        setData({ status, state, points, summary, validation, validationError });
         setError(null);
         if (active && !isActiveStatus(status.status) && !finishedNotified.current) {
           finishedNotified.current = true;
@@ -87,7 +89,7 @@ export function LiveRunPanel({
     );
   }
 
-  const { status, state, points, validation, validationError } = data;
+  const { status, state, points, summary, validation, validationError } = data;
   const showScaling = !(state.scaling_status === null && !state.timeline.length);
 
   return (
@@ -114,7 +116,7 @@ export function LiveRunPanel({
           <ScalingOverview state={state} />
           <LiveMetricsCharts points={points} />
           <ScalingTimeline timeline={state.timeline} />
-          <RunSummary state={state} />
+          <RunSummary state={{ ...state, summary }} />
         </>
       )}
     </div>

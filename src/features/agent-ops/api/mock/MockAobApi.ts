@@ -190,6 +190,15 @@ export class MockAobApi implements AobApi {
     return validation(this.visibleEvents(this.ownedRun(runId)));
   }
 
+  async getSummary(runId: string, signal?: AbortSignal) {
+    await this.respond(signal);
+    return liveState(
+      this.materialise(this.ownedRun(runId)),
+      this.visibleEvents(this.ownedRun(runId)),
+      this.serverNow(),
+    ).summary;
+  }
+
   /** Simulation control: how the next API calls misbehave. */
   setFailureMode(mode: MockFailureMode): void {
     this.failureMode = mode;

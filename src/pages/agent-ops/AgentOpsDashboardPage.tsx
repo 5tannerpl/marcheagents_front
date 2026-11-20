@@ -6,6 +6,9 @@ import { LiveDemoPanel } from '../../features/agent-ops/components/LiveDemoPanel
 import { SimulationBanner } from '../../features/agent-ops/components/SimulationBanner';
 import { Alert } from '../../features/agent-ops/components/ui';
 import { AgentOpsContext } from '../../features/agent-ops/context';
+import { LiveAobApi } from '../../features/agent-ops/api/LiveAobApi';
+import { AobAuthGate } from '../../features/agent-ops/components/AobAuthGate';
+import { useAobSession } from '../../features/agent-ops/hooks/useAobSession';
 
 const DEFAULT_SPEED = 5;
 const MOCK_LATENCY_MS = 250;
@@ -22,11 +25,15 @@ export function AgentOpsDashboardPage({ api: injected }: { api?: AobApi }) {
   const [reloadKey, setReloadKey] = useState(0);
 
   const api = useMemo<AobApi>(
-    () => injected ?? new MockAobApi({ speed, latencyMs: MOCK_LATENCY_MS }),
+    () => injected ?? (import.meta.env.DEV || import.meta.env.VITE_AOB_DASHBOARD_MOCK === '1'
+      ? new MockAobApi({ speed, latencyMs: MOCK_LATENCY_MS })
+      : new LiveAobApi()),
     [injected, speed],
   );
   const mock = api instanceof MockAobApi ? api : null;
   const simulated = mock !== null;
+  const liveApi = api instanceof LiveAobApi ? api : null;
+  const session = useAobSession(liveApi);
 
 
   return (
@@ -62,10 +69,22 @@ export function AgentOpsDashboardPage({ api: injected }: { api?: AobApi }) {
               }}
             />
           )}
-          <LiveDemoPanel key={`${speed}:${reloadKey}`} />
-          <Alert kind="info" testId="production-gate">
-            Phase 1 production mode: only the private live demo panel is available.
-          </Alert>
+          {liveApi ? (
+            <AobAuthGate state={session}>
+              <p className="mb-4 text-sm text-slate-400">Signed in as <strong className="text-slate-200">{session.status === 'authorised' ? session.session.user.display_name : 'user'}</strong></p>
+              <LiveDemoPanel key={`${speed}:${reloadKey}`} />
+              <Alert kind="info" testId="production-gate">
+                Phase 1 production mode: only the private live demo panel is available.
+              </Alert>
+            </AobAuthGate>
+          ) : (
+            <>
+              <LiveDemoPanel key={`${speed}:${reloadKey}`} />
+              <Alert kind="info" testId="production-gate">
+                Phase 1 production mode: only the private live demo panel is available.
+              </Alert>
+            </>
+          )}
         </div>
       </AgentOpsContext.Provider>
     </div>

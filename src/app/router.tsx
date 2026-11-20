@@ -9,25 +9,6 @@ import { LiveWorkspacePage } from '../pages/LiveWorkspacePage';
 import { ContactPage } from '../pages/ContactPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
-/**
- * The Agent Ops dashboard currently runs on simulated fixtures only, so it ships in dev builds
- * or when explicitly enabled; otherwise /app/agent-ops falls through to the `app/*` placeholder.
- */
-const AGENT_OPS_DASHBOARD_ENABLED =
-  import.meta.env.DEV || import.meta.env.VITE_AOB_DASHBOARD_MOCK === '1';
-
-const agentOpsRoutes = AGENT_OPS_DASHBOARD_ENABLED
-  ? [
-      {
-        path: 'app/agent-ops',
-        lazy: async () => {
-          const { AgentOpsDashboardPage } = await import('../pages/agent-ops/AgentOpsDashboardPage');
-          return { Component: AgentOpsDashboardPage };
-        },
-      },
-    ]
-  : [];
-
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -42,7 +23,13 @@ export const router = createBrowserRouter([
         element: <DataProtectionPage />,
       },
       { path: 'app/features/email-support', element: <LiveWorkspacePage /> },
-      ...agentOpsRoutes,
+      {
+        path: 'app/agent-ops',
+        lazy: async () => {
+          const { AgentOpsDashboardPage } = await import('../pages/agent-ops/AgentOpsDashboardPage');
+          return { Component: AgentOpsDashboardPage };
+        },
+      },
       { path: 'app/*', element: <LiveWorkspacePage /> },
       { path: 'contact', element: <ContactPage /> },
       // Legacy compatibility redirects

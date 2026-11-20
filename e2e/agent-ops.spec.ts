@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 /**
- * Agent Ops dashboard (simulated adapter). The route only exists in dev builds or builds made
+ * Agent Ops dashboard (simulated adapter). Use a development build or a build made
  * with VITE_AOB_DASHBOARD_MOCK=1, e.g.:
  *   VITE_AOB_DASHBOARD_MOCK=1 npm run build && npx playwright test e2e/agent-ops.spec.ts
  */
@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
     .getByRole('heading', { level: 1, name: 'Agent Ops Board' })
     .isVisible({ timeout: 5000 })
     .catch(() => false);
-  test.skip(!enabled, 'Build without VITE_AOB_DASHBOARD_MOCK=1: the simulated dashboard route is not shipped.');
+  test.skip(!enabled, 'The dashboard heading is not available in this test build.');
 });
 
 test('shows simulated data, the newest run and the four live metric charts', async ({ page }) => {
